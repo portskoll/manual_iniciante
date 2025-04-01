@@ -1,0 +1,13 @@
+
+
+
+
+"C:\py3128\python.exe" -m venv venv # para criar o hambiente virtual
+
+.\venv\Scripts\activate # para iniciar a venv
+
+No VScode
+
+CTRL + SHIFT + P # escolha o python interpreter
+
+pip install nome_do_pacote
