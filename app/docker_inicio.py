@@ -107,9 +107,10 @@ def app():
     docker rm <CONTAINER_ID>
     ```
 
-    - **Forçar a remoção de um container ativo**:
+    - **Forçar a remoção de um container ativo ou de vários containers**:
     ```bash
-    docker rm -f <CONTAINER_ID>
+    docker rm -f <CONTAINER_ID> # Para um container específico
+    docker rm -f $(docker ps -aq) # Para todos os containers
     ```
 
     ### Debug e Logs
@@ -127,7 +128,16 @@ def app():
     ```bash
     docker inspect <CONTAINER_ID>
     ```
-
+                
+    - **Inicia e cria um container com uma Imagem Ubuntu e abre o terminal**:
+    ```bash
+    docker container run -it --name meu_ubuntu ubuntu /bin/bash
+    ```
+    - **Ativar um container e entrar em um container ativo**:
+    ```bash 
+    docker start meu_ubuntu # Inicia o container
+    docker exec -it meu_ubuntu /bin/bash # Entra no container
+    ```
     ---
 
     ## Gerenciamento de Imagens
@@ -156,6 +166,11 @@ def app():
     - **Renomear ou alterar a tag de uma imagem**:
     ```bash
     docker tag <NOME_IMAGEM> <NOVO_NOME>:<NOVA_TAG>
+    ```
+
+    - **Enviar uma imagem para o DockerHub**:
+    ```bash
+    docker push <NOME_DO_REPOSITORIO>/<NOME_IMAGEM>:<VERSAO>
     ```
 
     ---
